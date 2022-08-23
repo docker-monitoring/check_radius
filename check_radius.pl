@@ -7,7 +7,7 @@ use Time::HiRes qw(gettimeofday tv_interval);;
 
 my $version =	"20100116";
 my $host =	"localhost";
-my $port =	18120;
+my $port =	1812;
 my $debug =	0;
 my $w =		3;
 my $c =		5;
@@ -17,7 +17,7 @@ my $filename;
 my $secret;
 my $status;
 
-my $radclient =	"/usr/local/bin/radclient";
+my $radclient =	"/usr/bin/radclient";
 
 my %ERRORS =	('OK'=>0,'WARNING'=>1,'CRITICAL'=>2,'UNKNOWN'=>3,'DEPENDENT'=>4);
 
@@ -117,9 +117,9 @@ print "DEBUG: Elapsed time: $elapsed seconds\n" if $debug;
 print "DEBUG: radclient exit status: $?\n" if $debug;
 print "DEBUG: plugin exit status: $status\n" if $debug;
 
-print "Radius response time $elapsed seconds";
+print "Radius fresponse time $elapsed seconds";
 print " | ";
-print "'Response Time'=$elapsed;$w;$c;0;$t\n";
+print "'Response Time'=$elapsed;$w;$c;$?;$t\n";
 
 if ( $? != 0 and defined($exec)) {
 	print "DEBUG: radclient timeout: executing \"$exec\"\n" if $debug;
@@ -127,5 +127,4 @@ if ( $? != 0 and defined($exec)) {
 }
 
 exit $status;
-
 
