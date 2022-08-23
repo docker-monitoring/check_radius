@@ -6,7 +6,7 @@ RUN apt-get update && \
     	curl \
     	freeradius-utils && \
     rm -rf /var/lib/apt/lists/* && \
-    curl https://exchange.icinga.com/exchange/check_radius.pl/files/461/check_radius.pl -o /check_radius.pl && \
+    curl https://raw.githubusercontent.com/docker-monitoring/check_radius/main/check_radius.pl -o /check_radius.pl && \
     chmod +x /check_radius.pl
     
 ENTRYPOINT ["/check_radius.pl"]
