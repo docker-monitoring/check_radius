@@ -117,7 +117,7 @@ print "DEBUG: Elapsed time: $elapsed seconds\n" if $debug;
 print "DEBUG: radclient exit status: $?\n" if $debug;
 print "DEBUG: plugin exit status: $status\n" if $debug;
 
-print "Radius fresponse time $elapsed seconds";
+print "Radius response time $elapsed seconds";
 print " | ";
 print "'Response Time'=$elapsed;$w;$c;$?;$t\n";
 
